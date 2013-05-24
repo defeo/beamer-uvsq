@@ -1,0 +1,90 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeuvsq}[2012/02/23 beamer theme inspired by UVSQ graphical chart, V1.0]
+
+\RequirePackage[T1]{fontenc}
+\renewcommand{\sfdefault}{uop}
+\RequirePackage[amssymb,amsfonts]{concmath}
+\RequirePackage{trajan}
+
+\mode<presentation>
+
+\usetheme{Boadilla}
+
+\usecolortheme[RGB={0,146,187}]{structure}
+\definecolor{uvsqgreen}{RGB}{119,173,28}
+\setbeamercolor{alerted text}{fg=blue}
+
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor*{palette secondary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor*{palette tertiary}{fg=white,bg=uvsqgreen}
+\setbeamercolor*{palette quaternary}{fg=black!80!white}
+\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+\setbeamercolor*{palette sidebar primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor*{palette sidebar secondary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor*{palette sidebar tertiary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor*{palette sidebar quaternary}{use=structure,fg=white,bg=structure.fg}
+
+\setbeamercolor*{author in head/foot}{parent=palette primary}
+\setbeamercolor*{title in head/foot}{use={palette primary,palette quaternary},bg=palette primary.bg,fg=palette quaternary.fg}
+\setbeamercolor*{date in head/foot}{parent=palette primary}
+\setbeamercolor*{section in head/foot}{parent=palette primary}
+\setbeamercolor*{subsection in head/foot}{parent=palette primary}
+
+\logo{\includegraphics[height=\baselineskip]{uvsq-logo}}
+
+\usefonttheme[onlymath]{serif}
+\setbeamertemplate{sidebar right}{}
+
+\setbeamertemplate{frametitle}{
+  \nointerlineskip
+  \@tempdima=\textwidth%
+  \advance\@tempdima by\beamer@leftmargin%
+  \advance\@tempdima by\beamer@rightmargin%
+  \usebeamercolor{frametitle}
+  \parbox[t]{0.75\@tempdima}{
+    \usebeamerfont{frametitle}%
+    \strut\insertframetitle\strut\par%
+    {%
+      \ifx\insertframesubtitle\@empty%
+      \else%
+      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+      \fi
+    }%
+  } 
+  \hfill
+  \insertlogo
+}
+
+\renewcommand{\emph}[1]{{\usebeamercolor[fg]{structure}#1}}
+  
+\titlegraphic{\includegraphics[width=3cm]{uvsq-logo-blanc}}
+
+\setbeamerfont{structure}{shape=\scshape,family=\sffamily}
+\setbeamerfont{title}{family=\trjnfamily,size=\huge}
+\setbeamerfont{subtitle}{family=\trjnfamily}
+\setbeamerfont{author}{family=\sffamily}
+\setbeamerfont{section in toc}{size=\large}
+
+\setbeamertemplate{title page}{
+  \begin{beamercolorbox}[sep=2em,left,wd=\paperwidth,ht=\paperheight,dp=0px]{palette primary}
+    \begin{flushright}
+      \usebeamercolor[fg]{titlegraphic}
+      \inserttitlegraphic
+      \hspace*{2ex}      
+    \end{flushright}
+
+    \vspace{2cm}
+
+    \usebeamerfont{title}\MakeUppercase{\inserttitle}\par
+    \usebeamerfont{subtitle}\MakeUppercase{\insertsubtitle}\par
+    \vspace{1.5\baselineskip}
+    \usebeamerfont{author}\insertauthor\par
+    \smallskip
+    \usebeamerfont{institute}\insertinstitute\par
+    \vspace{\baselineskip}
+    \usebeamerfont{date}\insertdate\par
+  \end{beamercolorbox}
+  \setbeamertemplate{footline}{}
+}
+
+\mode<all>
