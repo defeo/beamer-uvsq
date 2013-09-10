@@ -31,7 +31,10 @@
 \setbeamercolor*{section in head/foot}{parent=palette primary}
 \setbeamercolor*{subsection in head/foot}{parent=palette primary}
 
-\logo{\includegraphics[height=\baselineskip]{uvsq-logo}}
+
+\newsavebox{\logobox}
+\sbox{\logobox}{\usebeamerfont{frametitle}\includegraphics[height=\baselineskip]{uvsq-logo}}
+\logo{\usebox{\logobox}}
 
 \usefonttheme[onlymath]{serif}
 \setbeamertemplate{sidebar right}{}
