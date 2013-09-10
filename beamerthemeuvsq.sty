@@ -65,6 +65,7 @@
 
 \setbeamerfont{structure}{shape=\scshape,family=\sffamily}
 \setbeamerfont{title}{family=\trjnfamily,size=\huge}
+\setbeamerfont{section title}{shape=\scshape,family=\sffamily,size=\huge}
 \setbeamerfont{subtitle}{family=\trjnfamily}
 \setbeamerfont{author}{family=\sffamily}
 \setbeamerfont{section in toc}{size=\large}
@@ -89,6 +90,13 @@
     \usebeamerfont{date}\insertdate\par
   \end{beamercolorbox}
   \setbeamertemplate{footline}{}
+}
+
+\setbeamertemplate{section page}{
+  \frametitle{\strut}
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
 }
 
 \mode<all>
